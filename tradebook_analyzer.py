@@ -5,14 +5,14 @@ import yfinance as yf
 from pytz import timezone
 from datetime import datetime
 
-# Replace 'your_file.csv' with the actual filename (you can put yours...)
-csv_file_path = '/home/hi-tech/Downloads/tradebook-IM8853-EQ.csv'
+# Replace 'your_file.csv' with the actual filename 
+csv_file_path = 'put your actual path here'
 
 # Read the CSV file into a Pandas DataFrame
 df = pd.read_csv(csv_file_path)
 
 # List of columns to be removed(You can add what you want to remove)
-columns_to_remove = ['ISIN', 'Segment', 'Series', 'Auction', 'Trade ID', 'Order ID']  # Replace with actual column names
+columns_to_remove = ['Column1', 'Column2', 'Column3']  # Replace with actual column names
 
 # Drop the specified columns
 df = df.drop(columns=columns_to_remove, errors='ignore')
@@ -44,7 +44,7 @@ for symbol in df['Symbol'].unique():
         print(f"Failed to fetch data for {symbol}: {e}")
 
 # Replace 'output_file.csv' with the desired name for your CSV file
-output_csv_path = '/home/hi-tech/tradebooks/output_file.csv'  #give your desired location
+output_csv_path = 'put the location here'  #give your desired location
 
 # Convert the DataFrame to a CSV file
 df.to_csv(output_csv_path, index=False)
